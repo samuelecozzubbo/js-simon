@@ -25,12 +25,15 @@ function countdown(){
     timerDisplay.innerHTML = `Tempo rimanente: ${seconds}`;
     if(seconds > 0) {
         seconds--;
-    }else {
-        clearInterval(timer);
+    }else if(seconds === 0){
         randomArray.innerHTML = "";
+        seconds--;
+    }else{
+        clearInterval(timer);
+        seconds = 0;
         for(let i = 0; i < randomNumbers.length; i++) {
             prompt("Inserisci il "+ parseInt(i+1) +" numero");
-        }
+    }
     }
 }
 
