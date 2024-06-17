@@ -4,6 +4,7 @@ console.log(randomNumbers);
 //Richiamo la lista e il timer
 const randomArray = document.querySelector(".randomArray");
 const timerDisplay = document.querySelector(".timer");
+const output = document.querySelector(".answer");
 //Aggiungo l'array in pagina
 randomArray.innerHTML = `Memorizza i numeri: <br> ${randomNumbers}`;
 
@@ -12,8 +13,8 @@ let seconds = 4;
 let timer = setInterval(countdown,1000);
 
 
-// Dopo 30 secondi i numeri scompaiono e l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
-// Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+
+
 
 
 
@@ -29,11 +30,25 @@ function countdown(){
         randomArray.innerHTML = "";
         seconds--;
     }else{
+        // Dopo 30 secondi i numeri scompaiono e l’utente deve inserire, uno alla volta, i numeri che ha visto precedentemente, tramite il prompt().
         clearInterval(timer);
-        seconds = 0;
+        //Creo array risposte corrette
+        const correctArray = [];
         for(let i = 0; i < randomNumbers.length; i++) {
-            prompt("Inserisci il "+ parseInt(i+1) +" numero");
-    }
+            userInput = parseInt(prompt("Inserisci il "+ parseInt(i+1) +" numero"));
+            //Controllo se l'input è presente
+            if(randomNumbers.includes(userInput)) {
+                correctArray.push(userInput);
+            }
+        }
+        // Dopo che sono stati inseriti i 5 numeri, il software dice quanti e quali dei numeri da indovinare sono stati individuati.
+        console.log(correctArray);
+        if(correctArray.length > 0) {
+            output.innerHTML = `Bravo hai indovinato ${correctArray.length} numeri e sono ${correctArray}`;
+        }else {
+            output.innerHTML =`Mi dispiace hai perso`;
+        }
+        
     }
 }
 
