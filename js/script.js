@@ -27,6 +27,10 @@ function countdown(){
         seconds--;
     }else {
         clearInterval(timer);
+        randomArray.innerHTML = "";
+        for(let i = 0; i < randomNumbers.length; i++) {
+            prompt("Inserisci il "+ parseInt(i+1) +" numero");
+        }
     }
 }
 
