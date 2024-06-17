@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+main {
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: gray;
+}
+
+.container{
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.timer {
+    font-size: 1.2rem;
+    color: royalblue;
+}
+
+.answer {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: royalblue;
+}
